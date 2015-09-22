@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package phpBB Extension - Top Five
-* @copyright (c) 2014 Rich McGirr
+* @package Post of the day
+* @copyright (c) 2014 RMcGirr83, (c) 2015 v12Mike
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -36,8 +36,6 @@ $lang = array_merge($lang, array(
 	'TOP_FIVE'			=> 'Top Activity',
 	'NEWEST_TOPICS'		=> 'Newest Posts',
 	'NO_TOPIC_EXIST'	=> 'No posts exist for viewing',
-	'TOP_FIVE_ACTIVE'	=> 'Top Active Users',
-	'TOP_FIVE_NEWEST'	=> 'Newest Users',
 	'IN'                => 'In',
 	'BY'                => 'by:',
 ));

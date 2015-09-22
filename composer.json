@@ -1,21 +1,21 @@
 {
-	"name": "rmcgirr83/topfive",
+	"name": "v12mike/postoftheday",
 	"type": "phpbb-extension",
-	"description": "Displays statistics of the latest new posts, new users and most active users on the boards index page.",
-	"homepage": "https://github.com/RMcGirr83/topfive",
-	"version": "1.0.2",
-	"time": "2015-05-28",
+	"description": "Displays the most popular posts of the day/week/month/year/century on the boards index page.",
+	"homepage": "https://github.com/v12mike/postoftheday",
+	"version": "1.0.0",
+	"time": "2015-09-22",
     "keywords": [
         "phpbb",
         "extension",
-        "top five"
+        "Post of the Day"
     ],
 	"license": "GPL-2.0",
 	"authors": [
 		{
-			"name": "Rich McGirr",
-			"homepage": "https://www.phpbb.com/customise/db/author/rmcgirr83/contributions",
-			"email": "rmcgirr83@rmcgirr83.org",
+			"name": "Mike Morrin",
+			"homepage": "https://www.phpbb.com/customise/db/author/v12mike/contributions",
+			"email": "v12mike@ingenious.co.nz",
 			"role": "Lead Developer"
 		}
 	],
@@ -23,13 +23,13 @@
 		"php": ">=5.3.3"
 	},
 	"extra": {
-		"display-name": "Top Five",
+		"display-name": "Post of the Day",
 		"soft-require": {
 			"phpbb/phpbb": ">=3.1.2,<3.2.*@dev"
 		},
 		"version-check": {
 			"host": "www.phpbb.com",
-			"directory": "/customise/db/extension/topfiveext",
+			"directory": "/customise/db/extension/postofthedayext",
 			"filename": "version_check"
 		}
 	}

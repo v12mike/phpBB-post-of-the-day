@@ -1,6 +1,6 @@
 services:
-    rmcgirr83.topfive.functions:
-        class: rmcgirr83\topfive\core\topfive
+    v12mike.postoftheday.functions:
+        class: v12mike\postoftheday\core\postoftheday
         arguments:
             - @auth
             - @config
@@ -13,10 +13,10 @@ services:
             - %core.root_path%
             - %core.php_ext%
 
-    rmcgirr83.topfive.listener:
-        class: rmcgirr83\topfive\event\listener
+    v12mike.topfive.listener:
+        class: v12mike\postoftheday\event\listener
         arguments:
-            - @rmcgirr83.topfive.functions
+            - @v12mike.postoftheday.functions
             - @config
             - @template
             - @user

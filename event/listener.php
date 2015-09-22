@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package phpBB Extension - Top Five
-* @copyright (c) 2014 Rich McGirr
+* @package Post of the day
+* @copyright (c) 2014 RMcGirr83, (c) 2015 v12Mike
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace rmcgirr83\topfive\event;
+namespace v12mike\postoftheday\event;
 
 /**
 * @ignore
@@ -19,7 +19,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
-	/* @var \rmcgirr83\topfive\core\topfive */
+    /** @var \v12mike\postoftheday\core\postoftheday */
 	protected $functions;
 
 	/** @var \phpbb\config\config */
@@ -31,7 +31,7 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\user */
 	protected $user;
 
-	public function __construct(\rmcgirr83\topfive\core\topfive $functions, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
+	public function __construct(\v12mike\postoftheday\core\postoftheday $functions, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
 	{
 		$this->functions = $functions;
 		$this->config = $config;
@@ -49,21 +49,13 @@ class listener implements EventSubscriberInterface
 
 	public function main($event)
 	{
-		if (!$this->config['top_five_active'])
-		{
-			return;
-		}
-
 		// add lang file
-		$this->user->add_lang_ext('rmcgirr83/topfive', 'topfive');
+		$this->user->add_lang_ext('v12mike/postoftheday', 'postoftheday');
 
-		$this->functions->topposters();
-		$this->functions->newusers();
-		$this->functions->toptopics();
+		$this->functions->topposts();
 
 		$this->template->assign_vars(array(
-			'S_TOPFIVE'	=>	$this->config['top_five_active'],
-			'S_TOPFIVE_LOCATION'	=> $this->config['top_five_location'],
+			'S_POSTOFTHEDAY_LOCATION'	=> $this->config['post_of_the_day_location'],
 		));
 	}
 }

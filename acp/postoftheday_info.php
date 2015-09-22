@@ -1,27 +1,27 @@
 <?php
 /**
 *
-* @package Top Five
-* @copyright (c) 2014 RMcGirr83
+* @package Post of the day
+* @copyright (c) 2014 RMcGirr83, (c) 2015 v12Mike
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace rmcgirr83\topfive\acp;
+namespace v12mike\postoftheday\acp;
 
 /**
 * @package module_install
 */
-class topfive_info
+class postoftheday_info
 {
 	function module()
 	{
 		return array(
-			'filename'	=> '\rmcgirr83\topfive\acp\topfive_module',
-			'title'		=> 'TF_ACP',
+			'filename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
+			'title'		=> 'POTD_ACP',
 			'version'	=> '1.0.0',
 			'modes'		=> array(
-				'settings'	=> array('title' => 'TF_CONFIG', 'auth'	=> 'ext_rmcgirr83/topfive', 'cat'	=> array('TOPFIVE_MOD')),
+				'settings'	=> array('title' => 'POTD_CONFIG', 'auth'	=> 'ext_v12mike/postoftheday', 'cat'	=> array('POSTOFTHEDAY_EXT')),
 			),
 		);
 	}

@@ -1,19 +1,19 @@
 <?php
 /**
 *
-* @package Top Five
-* @copyright (c) 2014 RMcGirr83
+* @package Post of the day
+* @copyright (c) 2014 RMcGirr83, (c) 2015 v12Mike
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace rmcgirr83\topfive\migrations;
+namespace v12mike\postoftheday\migrations;
 
-class install_top_five extends \phpbb\db\migration\migration
+class install_post_of_the_day extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['top_five_version']) && version_compare($this->config['top_five_version'], '1.0.0', '>=');
+		return isset($this->config['post_of_the_day_version']) && version_compare($this->config['post_of_the_day_version'], '1.0.0', '>=');
 	}
 
 	static public function depends_on()
@@ -24,13 +24,9 @@ class install_top_five extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
-			array('config.add', array('top_five_how_many', 5)),
-			array('config.add', array('top_five_ignore_inactive_users', 1)),
-			array('config.add', array('top_five_ignore_founder', 1)),
-			array('config.add', array('top_five_show_admins_mods', 1)),
-			array('config.add', array('top_five_version', '1.0.0')),
-			array('config.add', array('top_five_location', 0)),
-			array('config.add', array('top_five_active', 0)),
+			array('config.add', array('post_of_the_day_how_many', 5)),
+			array('config.add', array('post_of_the_day_version', '1.0.0')),
+			array('config.add', array('post_of_the_day_location', 0)),
 
 			array('module.add', array(
 				'acp',
@@ -41,7 +37,7 @@ class install_top_five extends \phpbb\db\migration\migration
 				'acp',
 				'TF_ACP',
 				array(
-					'module_basename'	=> '\rmcgirr83\topfive\acp\topfive_module',
+					'module_basename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
 					'modes'				=> array('settings'),
 				),
 			)),
@@ -51,19 +47,16 @@ class install_top_five extends \phpbb\db\migration\migration
 	public function revert_data()
 	{
 		return array(
-			array('config.remove', array('top_five_how_many')),
-			array('config.remove', array('top_five_ignore_inactive_users')),
-			array('config.remove', array('top_five_ignore_founder')),
-			array('config.remove', array('top_five_show_admins_mods')),
-			array('config.remove', array('top_five_version')),
-			array('config.remove', array('top_five_location')),
-			array('config.remove', array('top_five_active')),
+			array('config.remove', array('post_of_the_day_how_many')),
+			array('config.remove', array('post_of_the_day_version')),
+			array('config.remove', array('post_of_the_day_location')),
+			array('config.remove', array('post_of_the_day_active')),
 
 			array('module.remove', array(
 				'acp',
 				'TF_ACP',
 				array(
-					'module_basename'	=> '\rmcgirr83\topfive\acp\topfive_module',
+					'module_basename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
 					'modes'				=> array('settings'),
 				),
 			)),

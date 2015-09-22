@@ -1,19 +1,19 @@
-phpbb-3.1-ext-topfive
+phpbb-3.1-ext-postoftheday
 =========================
 
-phpBB 3.1 extension that displays the latest topics, new users and most active users.
+phpBB 3.1 extension that displays the most popular post(s) of the day/week/month/year/century.
 
-This extension is the 3.1.x version of the [3.0.x Top Five Mod](https://www.phpbb.com/customise/db/mod/top_five/
+This extension requires the installation of the Post Love extension
 
-[![Build Status](https://travis-ci.org/RMcGirr83/phpBB-3.1-topfive.svg?branch=master)](https://travis-ci.org/RMcGirr83/phpBB-3.1-topfive)
+[![Build Status](https://travis-ci.org/v12mike/phpBB-3.1-postoftheday.svg?branch=master)](https://travis-ci.org/v12mike/phpBB-3.1-postoftheday)
 ## Installation
 
 ### 1. clone
-Clone (or download and move) the repository into the folder phpBB3/ext/rmcgirr83/topfive:
+Clone (or download and move) the repository into the folder phpBB3/ext/v12mike/postoftheday:
 
 ```
 cd phpBB3
-git clone https://github.com/RMcGirr83/php-3.1-ext-topfive.git ext/rmcgirr83/topfive/
+git clone https://github.com/v12mike/php-3.1-ext-postoftheday.git ext/v12mike/postoftheday/
 ```
 
 ### 2. activate

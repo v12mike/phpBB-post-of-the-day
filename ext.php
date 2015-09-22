@@ -1,14 +1,13 @@
 <?php
 /**
 *
-* Top five
-*
-* @copyright (c) 2015 Rich McGirr
-* @license GNU General Public License, version 2 (GPL-2.0)
+* Post of the day
+* @copyright (c) 2014 RMcGirr83, (c) 2015 v12Mike
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace rmcgirr83\topfive;
+namespace v12mike\postoftheday;
 
 /**
 * Extension class for custom enable/disable/purge actions
