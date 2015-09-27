@@ -55,6 +55,8 @@ class listener implements EventSubscriberInterface
 		$this->functions->topposts();
 
 		$this->template->assign_vars(array(
+
+			'S_POSTOFTHEDAY'	=>	1,
 			'S_POSTOFTHEDAY_LOCATION'	=> $this->config['post_of_the_day_location'],
 		));
 	}

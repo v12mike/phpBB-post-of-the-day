@@ -24,7 +24,7 @@ class postoftheday_module
 		$user->add_lang('acp/common');
 		$user->add_lang_ext('v12mike/postoftheday', 'acp/info_acp_postoftheday');
 		$this->tpl_name = 'acp_postoftheday';
-		$this->page_title = $user->lang['POSTOFTHEDAY_EXT'];
+		$this->page_title = $user->lang['POTD_EXT'];
 		add_form_key('acp_postoftheday');
 
 		if ($request->is_set_post('submit'))
@@ -38,38 +38,61 @@ class postoftheday_module
 				include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
 			}
 
-			$check_row = array('post_of_the_day_how_many' => $request->variable('post_of_the_day_how_many', 0));
-			$validate_row = array('post_of_the_day_how_many' => array('num', false, 1, 20));
+			$check_row = array('post_of_the_day_how_many_today' => $request->variable('post_of_the_day_how_many_today', 0));
+			$validate_row = array('post_of_the_day_how_many_today' => array('num', false, 0, 20));
 			$error = validate_data($check_row, $validate_row);
 
 			// Replace "error" strings with their real, localised form
 			$error = array_map(array($user, 'lang'), $error);
 
 			if (!sizeof($error))
-			{
-				$config->set('post_of_the_day_how_many', $request->variable('post_of_the_day_how_many', 0));
-			//	$config->set('top_five_ignore_inactive_users', $request->variable('top_five_ignore_inactive_users', true));
-			//	$config->set('top_five_ignore_founder', $request->variable('top_five_ignore_founder', true));
-			//	$config->set('top_five_show_admins_mods', $request->variable('top_five_show_admins_mods', true));
-				$config->set('post_of_the_day_location', $request->variable('post_of_the_day_location', true));
-			//	$config->set('top_five_active', $request->variable('top_five_active', true));
+            {
+                $check_row = array('post_of_the_day_how_many_this_week' => $request->variable('post_of_the_day_how_many_this_week', 0));
+                $validate_row = array('post_of_the_day_how_many_this_week' => array('num', false, 0, 20));
+                $error = validate_data($check_row, $validate_row);
 
-			//	$cache->destroy('_top_five_newest_users');
-			//	$cache->destroy('_top_five_posters');
+                // Replace "error" strings with their real, localised form
+                $error = array_map(array($user, 'lang'), $error);
+            }
+			if (!sizeof($error))
+            {
+                $check_row = array('post_of_the_day_how_many_this_month' => $request->variable('post_of_the_day_how_many_this_month', 0));
+                $validate_row = array('post_of_the_day_how_many_this_month' => array('num', false, 0, 20));
+                $error = validate_data($check_row, $validate_row);
+
+                // Replace "error" strings with their real, localised form
+                $error = array_map(array($user, 'lang'), $error);
+            }
+			if (!sizeof($error))
+            {
+                $check_row = array('post_of_the_day_how_many_this_year' => $request->variable('post_of_the_day_how_many_this_year', 0));
+                $validate_row = array('post_of_the_day_how_many_this_year' => array('num', false, 0, 20));
+                $error = validate_data($check_row, $validate_row);
+
+                // Replace "error" strings with their real, localised form
+                $error = array_map(array($user, 'lang'), $error);
+            }
+
+			if (!sizeof($error))
+			{
+				$config->set('post_of_the_day_how_many_today',      $request->variable('post_of_the_day_how_many_today', 0));
+				$config->set('post_of_the_day_how_many_this_week',  $request->variable('post_of_the_day_how_many_this_week', 0));
+				$config->set('post_of_the_day_how_many_this_month', $request->variable('post_of_the_day_how_many_this_month', 0));
+				$config->set('post_of_the_day_how_many_this_year',  $request->variable('post_of_the_day_how_many_this_year', 0));
+				$config->set('post_of_the_day_location',            $request->variable('post_of_the_day_location', true));
 
 				trigger_error($user->lang['POTD_SAVED'] . adm_back_link($this->u_action));
 			}
 		}
 
 		$template->assign_vars(array(
-			'POTD_ERROR'	    => isset($error) ? ((sizeof($error)) ? implode('<br />', $error) : '') : '',
-			'HOWMANY'			=> (!empty($this->config['post_of_the_day_how_many'])) ? $this->config['post_of_the_day_how_many'] : 0,
-		//	'IGNORE_INACTIVE'	=> (!empty($this->config['top_five_ignore_inactive_users'])) ? true : false,
-		//	'IGNORE_FOUNDER'	=> (!empty($this->config['top_five_ignore_founder'])) ? true : false,
-		//	'SHOW_ADMINS_MODS'	=> (!empty($this->config['top_five_show_admins_mods'])) ? true : false,
+			'POTD_ERROR'	        => isset($error) ? ((sizeof($error)) ? implode('<br />', $error) : '') : '',
+			'HOWMANY_TODAY'			=> (!empty($this->config['post_of_the_day_how_many_today'])) ? $this->config['post_of_the_day_how_many_today'] : 0,
+			'HOWMANY_THIS_WEEK'		=> (!empty($this->config['post_of_the_day_how_many_this_week'])) ? $this->config['post_of_the_day_how_many_this_week'] : 0,
+			'HOWMANY_THIS_MONTH'	=> (!empty($this->config['post_of_the_day_how_many_this_month'])) ? $this->config['post_of_the_day_how_many_this_month'] : 0,
+			'HOWMANY_THIS_YEAR'		=> (!empty($this->config['post_of_the_day_how_many_this_year'])) ? $this->config['post_of_the_day_how_many_this_year'] : 0,
 			'LOCATION'			=> (!empty($this->config['post_of_the_day_location'])) ? true : false,
-		//	'ACTIVE'			=> (!empty($this->config['top_five_active'])) ? true : false,
-			'TF_VERSION'		=> $this->config['post_of_the_day_version'],
+			'POTD_VERSION'		=> $this->config['post_of_the_day_version'],
 
 			'U_ACTION'			=> $this->u_action,
 		));

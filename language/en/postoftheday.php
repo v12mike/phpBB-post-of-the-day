@@ -33,9 +33,12 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'TOP_FIVE'			=> 'Top Activity',
-	'NEWEST_TOPICS'		=> 'Newest Posts',
+	'POST_OF_THE_DAY'	=> 'Post of the Day',
 	'NO_TOPIC_EXIST'	=> 'No posts exist for viewing',
 	'IN'                => 'In',
 	'BY'                => 'by:',
+    'LIKES_TODAY'       => 'Liked %d times today:',
+    'LIKES_THIS_WEEK'   => 'Liked %d times this week',
+    'LIKES_THIS_MONTH'  => 'Liked %d times this month',
+    'LIKES_THIS_YEAR'   => 'Liked %d times this year',
 ));

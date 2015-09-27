@@ -24,18 +24,18 @@ class install_post_of_the_day extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
-			array('config.add', array('post_of_the_day_how_many', 5)),
+			array('config.add', array('post_of_the_day_how_many', 1)),
 			array('config.add', array('post_of_the_day_version', '1.0.0')),
 			array('config.add', array('post_of_the_day_location', 0)),
 
 			array('module.add', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'TF_ACP'
+				'POTD_ACP'
 			)),
 			array('module.add', array(
 				'acp',
-				'TF_ACP',
+				'POTD_ACP',
 				array(
 					'module_basename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
 					'modes'				=> array('settings'),
@@ -50,11 +50,10 @@ class install_post_of_the_day extends \phpbb\db\migration\migration
 			array('config.remove', array('post_of_the_day_how_many')),
 			array('config.remove', array('post_of_the_day_version')),
 			array('config.remove', array('post_of_the_day_location')),
-			array('config.remove', array('post_of_the_day_active')),
 
 			array('module.remove', array(
 				'acp',
-				'TF_ACP',
+				'POTD_ACP',
 				array(
 					'module_basename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
 					'modes'				=> array('settings'),
@@ -63,7 +62,7 @@ class install_post_of_the_day extends \phpbb\db\migration\migration
 			array('module.remove', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'TF_ACP'
+				'POTD_ACP'
 			)),
 		);
 	}

@@ -17,5 +17,5 @@ git clone https://github.com/v12mike/php-3.1-ext-postoftheday.git ext/v12mike/po
 ```
 
 ### 2. activate
-Go to admin panel -> tab customise -> Manage extensions -> enable Top Five
+Go to admin panel -> tab customise -> Manage extensions -> enable Post of the Day
 

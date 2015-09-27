@@ -18,10 +18,10 @@ class postoftheday_info
 	{
 		return array(
 			'filename'	=> '\v12mike\postoftheday\acp\postoftheday_module',
-			'title'		=> 'POTD_ACP',
+			'title'		=> 'Post of the day',
 			'version'	=> '1.0.0',
 			'modes'		=> array(
-				'settings'	=> array('title' => 'POTD_CONFIG', 'auth'	=> 'ext_v12mike/postoftheday', 'cat'	=> array('POSTOFTHEDAY_EXT')),
+				'settings'	=> array('title' => 'POTD_CONFIG', 'auth'	=> 'ext_v12mike/postoftheday', 'cat'	=> array('POTD_EXT')),
 			),
 		);
 	}

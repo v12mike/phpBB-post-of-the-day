@@ -51,9 +51,8 @@ dd.potd-active-header {
 	white-space: normal;
 }
 
-@media only screen and (max-width: 700px), only screen and (max-device-width: 700px) {
-	#post_of_the_day ul.topiclist li.row a.subforum {
-		white-space: pre;
-		overflow: hidden;
-	}
+
+#post_of_the_day ul.topiclist.topics li.row dt {
+    text-align: inherit !important;
+    width: inherit !important;
 }

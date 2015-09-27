@@ -1,33 +1,37 @@
-<div class="forabg responsive-hide" id="post_of_the_day">
+<div class="forabg" id="post_of_the_day">
 	<div class="inner">
 	<ul class="topiclist">
 		<li class="header">
 			<dl>
-				<dt><div class="list-inner">{L_NEWEST_TOPICS}</div></dt>
-				<dd class="topics tf-active-header">{L_TOP_FIVE_ACTIVE}</dd>
-				<dd class="lastpost"><span>{L_TOP_FIVE_NEWEST}</span></dd>
+                <dt>
+                <div class="list-inner">{L_POST_OF_THE_DAY}
+                </div>
+                </dt>
 			</dl>
 		</li>
 	</ul>
 	<ul class="topiclist topics">
 		<li class="row bg1">
 			<dl>
-				<dt>
+                <span class="meta">
+                <dd>
 					<div class="list-inner">
 						<ul>
-							<!-- BEGIN top_five_topic -->
+							<!-- BEGIN post_of_the_day -->
 								<li>
-									<!-- IF top_five_topic.NO_TOPIC_TITLE-->
-										{top_five_topic.NO_TOPIC_TITLE}
-									<!-- ELSE -->
-										<a href="{top_five_topic.U_TOPIC}" class="topictitle subforum<!-- IF top_five_topic.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->">{top_five_topic.TOPIC_TITLE}</a><span class="meta">{top_five_topic.USERNAME_FULL} &raquo; {top_five_topic.LAST_TOPIC_TIME} &raquo; {L_IN}&nbsp;<a href="{top_five_topic.U_FORUM}">{top_five_topic.FORUM_NAME}</a></span>
-										<!-- EVENT rmcgirr83_top_five_topiclist_row_append -->
+									<!-- IF post_of_the-day.NO_TOPIC_TITLE-->{post_of_the_day.NO_TOPIC_TITLE}
+									<!-- ELSE -->{post_of_the_day.POST_LIKES_IN_PERIOD} <a href="{post_of_the_day.U_TOPIC}" class="topictitle subforum<!-- IF post_of_the_day.S_UNREAD --> unread<!-- ELSE --> read<!-- ENDIF -->">{post_of_the_day.TOPIC_TITLE}</a>
+                                    {post_of_the_day.USERNAME_FULL} &raquo; {post_of_the_day.POST_TIME} &raquo; 
+                                    {L_IN}&nbsp;<a href="{post_of_the_day.U_FORUM}">{post_of_the_day.FORUM_NAME}</a> &raquo; 
+                                    
+									<!-- EVENT v12mike_post_of_the_day_topiclist_row_append -->
 									<!-- ENDIF -->
 								</li>
-							<!-- END top_five_topic -->
+							<!-- END post_of_the_day -->
 						</ul>
 					</div>
-				</dt>
+				</dd>
+                </span>
 			</dl>
 		</li>
 	</ul>
