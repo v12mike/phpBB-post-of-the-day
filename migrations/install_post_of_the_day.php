@@ -20,9 +20,10 @@ class install_post_of_the_day extends \phpbb\db\migration\migration
 	{
 		return array('\phpbb\db\migration\data\v31x\v312');
 	}
-
 	public function update_data()
 	{
+   //     define('POSTS_LIKES_TABLE',		$this->table_prefix . 'posts_likes');
+
 		return array(
 			array('config.add', array('post_of_the_day_how_many', 1)),
 			array('config.add', array('post_of_the_day_version', '1.0.0')),
@@ -67,3 +68,34 @@ class install_post_of_the_day extends \phpbb\db\migration\migration
 		);
 	}
 }
+
+
+	// create an index on post_like timestamp
+
+/*  the following needs fixing
+	public function update_schema()
+	{
+		return array(
+            'add_index'		=> array(
+                POSTS_LIKES_TABLE			=> array(
+                    'timestamp'		=> array('timestamp'),
+                    ),
+                ),
+            );
+	}
+
+	public function revert_schema()
+	{
+		return array(
+ 			'drop_keys'		=> array(
+                POSTS_LIKES_TABLE	=> array('timestamp'),
+                ),
+            );
+	}
+*/
+//ALTER TABLE `fcf31a_db`.`phpbb_posts_likes` 
+//ADD INDEX `idx_phpbb_posts_likes_timestamp` (`timestamp` DESC)  COMMENT '';
+
+//ALTER TABLE `fcf31a_db`.`phpbb_posts_likes` 
+//DROP INDEX `idx_phpbb_posts_likes_timestamp` ;
+

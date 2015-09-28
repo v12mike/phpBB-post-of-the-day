@@ -15,8 +15,6 @@ namespace v12mike\postoftheday\core;
            define('SECONDS_PER_HOUR',       SECONDS_PER_MINUTE * 60);
            define('SECONDS_PER_DAY',        SECONDS_PER_HOUR * 24);
 
-           define('POSTS_LIKES_TABLE',		'phpbb_posts_likes');
-
 class postoftheday
 {
 	/** @var \phpbb\auth\auth */
@@ -61,6 +59,9 @@ class postoftheday
 		$this->user = $user;
 		$this->root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
+
+
+        define('POSTS_LIKES_TABLE',		$table_prefix . 'posts_likes');
 	}
 
 	public function topposts($tpl_loopname = 'post_of_the_day')

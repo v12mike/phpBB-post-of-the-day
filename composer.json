@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Displays the most popular posts of the day/week/month/year/century on the boards index page.",
 	"homepage": "https://github.com/v12mike/postoftheday",
-	"version": "1.0.0",
+	"version": "0.1.1",
 	"time": "2015-09-22",
     "keywords": [
         "phpbb",
@@ -20,7 +20,8 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3.3"
+		"php": ">=5.3.3",
+                "anavaro/postlove": ">=1.1.0"
 	},
 	"extra": {
 		"display-name": "Post of the Day",
